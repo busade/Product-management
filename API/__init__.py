@@ -9,7 +9,7 @@ from flask_migrate import Migrate
 
 
 
-def create_app(config=config_dict['prod']):
+def create_app(config='prod'):
     app= Flask(__name__)
     app.config.from_object(config_dict[config])
     db.init_app(app)
