@@ -22,7 +22,7 @@ class TestConfig(Config):
 
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///' + os.path.join(BASE_DIRECTORY, 'prod_db.sqlite3'))
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DEBUG=config('DEBUG', default = False, cast=bool)
 BASE_DIRECTORY
